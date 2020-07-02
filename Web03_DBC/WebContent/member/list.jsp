@@ -24,11 +24,15 @@
 				</tr>
 			</thead>
 			<tbody>
-			<%for(MemberDto tmp:list){ %>
-				<td><%tmp.getNum();%></td>
-				<td><%tmp.getName();%></td>
-				<td><%tmp.getAddr();%></td>
-			<%}%>
+				
+					<%for(MemberDto tmp:list){ %>
+						<tr>
+							<td><%=tmp.getNum()%></td>
+							<td><%=tmp.getName()%></td>
+							<td><%=tmp.getAddr()%></td>
+						</tr>
+					<%}%>
+				
 			</tbody>
 		</table>
 	</div>
