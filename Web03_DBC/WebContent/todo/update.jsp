@@ -1,3 +1,4 @@
+<%@page import="test.dto.TodoDto"%>
 <%@page import="test.dao.TotoDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -9,13 +10,13 @@
 </head>
 
 <%
-	String num=request.getParameter("num");
-	String upd=request.getParameter("");
-	TotoDao dao=TotoDao.getInstance();
-	//dao.update(upd,num);
+	int num=Integer.parseInt(request.getParameter("num"));
+	session.setAttribute("num", num);
 %>
 <body>
-		<form action="update.jsp" method="post">
+		
+		<%=num %>
+		<form action="updateAction.jsp" method="get">
 			<label for="sendUpdate">수정 </label>
 			<input type="text" name="sendUpdate" id="sendUpdate"/>	
 			<button type="submit">수정</button>

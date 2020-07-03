@@ -106,7 +106,7 @@ public class TotoDao {
 		}
 		
 	}
-	public boolean update(String thing, int num) {
+	public boolean update(String thing,int num) {
 		Connection conn=null;
 		PreparedStatement pstmt=null;
 		int flag=0;
@@ -114,10 +114,12 @@ public class TotoDao {
 			conn=new DbcpBean().getConn();
 			String sql="UPDATE todo "
 					+ " SET things=? "
-					+ " WHERE NUM=?";
+					+ " WHERE num=?";
+				
 			pstmt=conn.prepareStatement(sql);
 			pstmt.setString(1,thing);
-			pstmt.setInt(1, num);
+			pstmt.setInt(2, num);
+			
 			flag=pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();

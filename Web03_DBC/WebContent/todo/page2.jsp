@@ -1,35 +1,19 @@
+<%@page import="test.dto.MemberDto"%>
+<%@page import="test.dao.TotoDao"%>
 <%@page import="test.dto.TodoDto"%>
 <%@page import="java.util.List"%>
-<%@page import="test.dao.TotoDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="/Web03_DBC/css/bootstrap.css" />
-<style>
-@import
-	url('https://fonts.googleapis.com/css2?family=Notable&family=Roboto+Mono:wght@100&display=swap')
-	;
-
-button {
-	height: 38px
-}
-
-form {
-	width: 500px;
-}
-
-h2 {
-	font-family: 'Notable', sans-serif;
-}
-</style>
 </head>
 <%
 	TotoDao dao = TotoDao.getInstance();
 List<TodoDto> dto = dao.getList();
+
 String updateMsg = request.getParameter("sendUpdate");
 %>
 <body>
@@ -76,19 +60,20 @@ String updateMsg = request.getParameter("sendUpdate");
 				</tr>
 			</thead>
 			<tbody>
-
-				<%
-					for (TodoDto tmp : dto) {
-				%>
+				<%TodoDto [][] d2={};%>
+				<%TodoDto [] d={};%>
+				<%for (int i=0; i<dto.size(); i++) {%>	
 				<tr>
-					<td><%=tmp.getNum()%></td>
-					<td><a href="update.jsp?num=<%=tmp.getNum()%>"><%=tmp.getThings()%></a></td>
-					<td><%=tmp.getTime()%></td>
-					<td><a href="delete.jsp?num=<%=tmp.getNum()%>">삭제</a></td>
+					<td><%=dto.get(i).getNum()%></td>
+					<td><a href="update.jsp?num=<%=dto.get(i).getNum()%>"><%=dto.get(i).getThings()%></a></td>
+					<td><%=dto.get(i).getTime()%></td>
+					<td><a href="delete.jsp?num=<%=dto.get(i).getNum()%>">삭제</a></td>
 				</tr>
-				<%
-					}
-				%>
+					<% d[i]=dto.get(i);  %>
+					if(i%10==0){
+					d
+					
+				<%}%>
 			</tbody>
 
 		</table>
@@ -98,7 +83,7 @@ String updateMsg = request.getParameter("sendUpdate");
 					<a class="page-link" href="#"tabindex="-1" aria-disabled="true">Previous</a>
 				</li>
 					<li class="page-item"><a class="page-link" href="#">1</a></li>
-					<li class="page-item"><a class="page-link" href="#">2</a></li>
+					<li class="page-item"><a class="page-link" href="page2.jsp">2</a></li>
 					<li class="page-item"><a class="page-link" href="#">3</a></li>
 				<li class="page-item">
 					<a class="page-link" href="#">Next</a>
@@ -110,5 +95,3 @@ String updateMsg = request.getParameter("sendUpdate");
 
 </body>
 </html>
-
-
