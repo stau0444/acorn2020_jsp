@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/bootstrap.css" />
 <meta charset="UTF-8">
