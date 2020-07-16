@@ -7,6 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="/Web03_DBC/css/bootstrap.css" />
 </head>
 
 <%  // 1. form 전송되는 수정할 회원의 정보를 읽어온다.  
@@ -20,7 +21,7 @@
 		
 		response.sendRedirect("list.jsp");
 	// 2. db에  수정 반영한다.
-	
+		
 	//3.응답한다.
 
 %>

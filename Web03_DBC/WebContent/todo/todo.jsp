@@ -36,16 +36,15 @@ String updateMsg = request.getParameter("sendUpdate");
 
 	<div class="container">
 
-		<div class="navbar-light bg-light">
-			<a href="${pageContext.request.contextPath}" class="navbar-brand">UGO</a>
-			<ul class="navbar-nav">
-				<li class="nav-item"><a class="nav-link"
-					href="/Web03_DBC/member/list.jsp">회원 목록 보기</a></li>
-				<li class="nav-item"><a class="nav-link active"
-					href="/Web03_DBC/todo/todo.jsp">할일 목록 보기</a></li>
-			</ul>
-
-		</div>
+	 <div class="navbar navbar-expand-sm navbar-dark bg-primary">
+	 	<a href="${pageContext.request.contextPath}" class="navbar-brand">UGO</a>
+	 	<div >
+		 	<ul class="navbar-nav mr-auto">
+		 		<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/member/list.jsp">Member</a></li>
+		 		<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/todo/todo.jsp">Todo</a></li>
+		 	</ul>
+	 	</div>
+	 </div>
 		<h2>TODO LIST</h2>
 		<form action="insert.jsp" method="post">
 			<div class="form-group">

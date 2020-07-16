@@ -16,13 +16,15 @@
 %>
 <body>
 	<div class="container"> 
-		<div class="navbar-light bg-light">
-		 	<a href="${pageContext.request.contextPath}" class="navbar-brand">UGO</a>
-		 	<ul class="navbar-nav">
-		 		<li class="nav-item"><a class="nav-link active" href="${pageContext.request.contextPath}/member/list.jsp">회원 목록 보기</a></li>
-		 		<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/todo/todo.jsp">할일 목록 보기</a></li>
+	 <div class="navbar navbar-expand-sm navbar-dark bg-primary">
+	 	<a href="${pageContext.request.contextPath}" class="navbar-brand">UGO</a>
+	 	<div >
+		 	<ul class="navbar-nav mr-auto">
+		 		<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/member/list.jsp">Member</a></li>
+		 		<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/todo/todo.jsp">Todo</a></li>
 		 	</ul>
-		 </div>
+	 	</div>
+	 </div>
 		<table class="table table-primary">
 			<thead>
 				<tr>
@@ -38,7 +40,7 @@
 							<td><%=tmp.getNum()%></td>
 							<td><%=tmp.getName()%></td>
 							<td><%=tmp.getAddr()%></td>
-							<td><a href="delete.jsp?num=<%=tmp.getNum()%>">삭제</a></td>
+							<td><a href="javascript:deleteConfirm(<%=tmp.getNum()%>)">삭제</a></td>
 							<td><a href="updateform.jsp?num=<%=tmp.getNum()%>">수정</a></td>
 						</tr>
 					<%}%>
@@ -47,5 +49,14 @@
 		</table>
 		<a href="insertform.jsp">회원 추가 하러 가기</a>
 	</div>
+	<script>
+		function deleteConfirm(num){
+			var isDelete=cofirm("num+번 글을 삭제하겠습니까?");
+			if(isDelete){
+				location.href="delete.jsp?num="+num;
+			}
+		}
+		
+	</script>
 </body>
 </html>

@@ -10,10 +10,15 @@
 </head>
 
 <% 
-	int num=(int)session.getAttribute("num");
-	String updatedMsg=request.getParameter("sendUpdate");
+	request.setCharacterEncoding("utf-8");
+	int num=Integer.parseInt(request.getParameter("num"));
+	String name=request.getParameter("name");
+	String addr=request.getParameter("addr");
+	TodoDto dto= new TodoDto(num,name,addr);
 	TotoDao dao=TotoDao.getInstance();
-	dao.update(updatedMsg, num);
+	dao.update(name, num);
+
+response.sendRedirect("list.jsp");
 	
 %>
 <%=num%>
