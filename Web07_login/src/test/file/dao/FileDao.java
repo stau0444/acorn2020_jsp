@@ -91,4 +91,66 @@ public class FileDao {
 			return false;
 		}
 	}
+	public FileDto getData(int num) {
+		Connection conn = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		FileDto dto = new FileDto();
+		try {
+			conn = new DbcpBean().getConn();
+			String sql = "SELECT * FROM borad_file WHERE NUM=?";
+			ps = conn.prepareStatement(sql);
+			ps.setInt(1, num);
+			rs = ps.executeQuery();
+			if(rs.next()) {
+				dto.setNum(num);
+				dto.setWriter(rs.getString("writer"));
+				dto.setTitle(rs.getString("title"));
+				dto.setOrgFileName(rs.getString("orgFileName"));
+				dto.setSaveFileName(rs.getString("saveFileName"));
+				dto.setFileSize(rs.getLong("fileSize"));
+				dto.setRegdate(rs.getString("regdata"));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs!=null)
+					rs.close();
+				if (ps != null)
+					ps.close();
+				if (conn != null)
+					conn.close();
+			} catch (Exception e2) {
+			}
+		}
+		return dto;
+	}
+	public Boolean delete(int num) {
+		Connection conn = null;
+		PreparedStatement ps = null;
+		int flag = 0;
+		try {
+			conn = new DbcpBean().getConn();
+			String sql = "DELETE FROM borad_file WHERE NUM=?";
+			ps = conn.prepareStatement(sql);
+			ps.setInt(1, num);
+			flag = ps.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (ps != null)
+					ps.close();
+				if (conn != null)
+					conn.close();
+			} catch (Exception e2) {
+			}
+		}
+		if (flag > 0) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 }

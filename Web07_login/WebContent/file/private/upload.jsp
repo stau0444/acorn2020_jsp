@@ -89,6 +89,7 @@
             //DB 에 파일 정보를 저장한다.
             isSuccess=FileDao.getInstance().insert(dto);
             System.out.print(isSuccess);
+           	System.out.print(uploadPath);
         }//if
         
     } catch (Exception ex) {

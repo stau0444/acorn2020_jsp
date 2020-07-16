@@ -11,8 +11,7 @@
 </head>
 
 <body>
-	<%
-		
+	<% 
 		Date d=new Date(); 
 		String nick=(String)session.getAttribute("nick");
 	%>
