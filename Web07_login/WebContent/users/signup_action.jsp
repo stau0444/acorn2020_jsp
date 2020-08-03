@@ -6,12 +6,12 @@
 	String id =request.getParameter("id"); 
 	String pwd=request.getParameter("pwd");
 	String email=request.getParameter("email");
-	
+	String profile=request.getParameter("profile");
 	UsersDto dto=new UsersDto();
 	dto.setId(id);
 	dto.setPwd(pwd);
 	dto.setEmail(email);
-	
+	dto.setProfile(profile);
 	UsersDao dao=UsersDao.getInstance();
 	Boolean isSuccess=dao.insert(dto);
 %>

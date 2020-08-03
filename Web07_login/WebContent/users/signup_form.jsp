@@ -1,19 +1,52 @@
+<%@page import="test.users.dao.UsersDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="../css/bootstrap.min.css" />
+<style>
+#output{
+	width:150px;
+	height:150px;
+	border:2px solid tomato;
+	border-radius:50%;
+	display:block;
+	margin:30px auto;
+}
+#image{display}
+#openfile{display:}
+</style>
 
 </head>
 <body>
 	<div class="container" style="width:400px">
 		<h1 class="text-center">Sign-Up</h1>
 		<form action="signup_action.jsp" method="post" id="myForm" >
+			<div class="form-group">				
+				<label for="image">프로필 사진</label>
+				<input type='file' id="openfile"accept='image/*' onchange='openFile(event)'><br>
+				<img id='output'>
+				<input type="hidden" name="imgUrl" value="" />
+			<script>
+			  	var openFile = function(event) {
+			  	var input = event.target;
 			
-			<div class="form-group-inline">
+			    var reader = new FileReader();
+			    	reader.onload = function(){
+			    var dataURL = reader.result;
+			    var output = document.getElementById('output');
+			      	output.src = dataURL;
+			      	console.log(dataURL);
+			    };
+			    reader.readAsDataURL(input.files[0]);
+			  };
+			</script>
+			</div>
+			<div>				
 				<label for="id">아이디</label>
 				<input type="text" name="id" id="id" class="form-control-inline w-85"/>
 				<button id="checkBtn">중복확인</button>
@@ -38,6 +71,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
 	
+
 	var canUseId=false;
 	
 	$("#checkBtn").on("click",function(){
@@ -73,6 +107,11 @@
 				return false;
 			}
 	});
+	
+	
+	
+	
+	
 	
 	
 	

@@ -17,7 +17,7 @@
 --><!-- Note:  A "Server" is not itself a "Container", so you may not
      define subcomponents such as "Valves" at this level.
      Documentation at /docs/config/server.html
- --><Server port="8005" shutdown="SHUTDOWN">
+ --><Server port="8006" shutdown="SHUTDOWN">
   <Listener className="org.apache.catalina.startup.VersionLoggerListener"/>
   <!-- Security listener. Documentation at /docs/config/listeners.html
   <Listener className="org.apache.catalina.security.SecurityListener" />
@@ -60,7 +60,7 @@
          APR (HTTP/AJP) Connector: /docs/apr.html
          Define a non-SSL/TLS HTTP/1.1 Connector on port 8080
     -->
-    <Connector connectionTimeout="20000" port="8888" protocol="HTTP/1.1" redirectPort="8443"/>
+    <Connector connectionTimeout="20000" port="8889" protocol="HTTP/1.1" redirectPort="8443"/>
     <!-- A "Connector" using the shared thread pool-->
     <!--
     <Connector executor="tomcatThreadPool"
@@ -153,7 +153,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-      <Context docBase="Web02_Servlet" path="/Web02_Servlet" reloadable="true" source="org.eclipse.jst.jee.server:Web02_Servlet"/><Context docBase="Web03_DBC" path="/Web03_DBC" reloadable="true" source="org.eclipse.jst.jee.server:Web03_DBC"/><Context docBase="NoticeBorad" path="/NoticeBorad" reloadable="true" source="org.eclipse.jst.jee.server:NoticeBorad"/><Context docBase="Web04_include" path="/Web04_include" reloadable="true" source="org.eclipse.jst.jee.server:Web04_include"/><Context docBase="Web05_Scope" path="/Web05_Scope" reloadable="true" source="org.eclipse.jst.jee.server:Web05_Scope"/><Context docBase="Web06_Filter" path="/Web06_Filter" reloadable="true" source="org.eclipse.jst.jee.server:Web06_Filter"/><Context docBase="Web07_login" path="/Web07_login" reloadable="true" source="org.eclipse.jst.jee.server:Web07_login"/></Host>
+      <Context docBase="Web02_Servlet" path="/Web02_Servlet" reloadable="true" source="org.eclipse.jst.jee.server:Web02_Servlet"/><Context docBase="Web03_DBC" path="/Web03_DBC" reloadable="true" source="org.eclipse.jst.jee.server:Web03_DBC"/><Context docBase="NoticeBorad" path="/NoticeBorad" reloadable="true" source="org.eclipse.jst.jee.server:NoticeBorad"/><Context docBase="Web04_include" path="/Web04_include" reloadable="true" source="org.eclipse.jst.jee.server:Web04_include"/><Context docBase="Web05_Scope" path="/Web05_Scope" reloadable="true" source="org.eclipse.jst.jee.server:Web05_Scope"/><Context docBase="Web06_Filter" path="/Web06_Filter" reloadable="true" source="org.eclipse.jst.jee.server:Web06_Filter"/><Context docBase="Web07_login" path="/Web07_login" reloadable="true" source="org.eclipse.jst.jee.server:Web07_login"/><Context docBase="Web07_Login(선생님)" path="/Web07_Login선생님" reloadable="true" source="org.eclipse.jst.jee.server:Web07_Login(선생님)"/><Context docBase="semi-project" path="/semi-project" reloadable="true" source="org.eclipse.jst.jee.server:semi-project"/></Host>
     </Engine>
   </Service>
 </Server>

@@ -192,11 +192,12 @@ public class UsersDao {
 		try {
 			conn = new DbcpBean().getConn();
 			String sql = "UPDATE users " 
-					+ " SET email=?"
+					+ " SET email=?,profile=?"
 					+ " WHERE id=?";
 			ps = conn.prepareStatement(sql);
 			ps.setString(1, dto.getEmail());
-			ps.setString(2, dto.getId());
+			ps.setString(2, dto.getProfile());
+			ps.setString(3, dto.getId());
 
 			flag = ps.executeUpdate();
 		} catch (Exception e) {

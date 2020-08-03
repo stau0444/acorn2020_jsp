@@ -1,3 +1,13 @@
+CREATE TABLE board_cafe(
+	num NUMBER PRIMARY KEY,
+	writer VARCHAR2(100) NOT NULL,
+	title VARCHAR2(100) NOT NULL,
+	content CLOB,
+	viewCount NUMBER,--조회수
+	regdate DATE
+);
+
+CREATE SEQUENCE board_cafe_seq;
 
 CREATE TABLE borad_file(
 	num NUMBER PRIMARY KEY,
@@ -17,3 +27,13 @@ CREATE TABLE users(
 	profile VARCHAR2(100), --프로필 이미지 경로를 저장할 칼럼
 	regdate DATE  
 );
+
+CREATE TABLE board_gallery(
+	num NUMBER PRIMARY KEY,
+	writer VARCHAR2(100),
+	caption VARCHAR2(100),
+	imagePath VARCHAR2(100),
+	regdate	DATE
+);
+
+CREATE SEQUENCE board_galley_seq;

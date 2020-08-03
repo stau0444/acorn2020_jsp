@@ -19,7 +19,7 @@
 				method:"GET",
 				url:"${pageContext.request.contextPath}/ajax/getmsg.jsp",
 				data:"num=1&name=kimgura",
-				success:function(responseData){
+				success:function(  ){
 					 document.getElementById("ptag").innerText=responseData;
 				},
 			});

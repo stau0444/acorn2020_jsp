@@ -6,10 +6,17 @@
  <% 
  	String id=(String)session.getAttribute("id");
  	String email=request.getParameter("email");
+ 	String profile=request.getParameter("profile");
+ 	if(profile.equals("null")){
+ 		profile=null;
+ 	}
  	UsersDto dto=new UsersDto();
  	dto.setId(id);
  	dto.setEmail(email);
+ 	dto.setProfile(profile);
  	UsersDao.getInstance().update(dto);
+ 	//수정할 프로파일
+	
  %>
 <!DOCTYPE html>
 <html>
